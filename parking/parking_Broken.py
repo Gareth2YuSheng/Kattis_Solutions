@@ -11,12 +11,19 @@ parked_trucks = 0
 
 for t in range(1,100):
   #if truck enters
-  if t == trucks[0][0] or t == trucks[1][0] or t == trucks[2][0]:
+  if t == trucks[0][0]:
+    parked_trucks += 1
+  if t == trucks[1][0]:
+    parked_trucks += 1
+  if t == trucks[2][0]:
     parked_trucks += 1
   #if truck leaves
-  if t == trucks[0][1] or t == trucks[1][1] or t == trucks[2][1]:
+  if t == trucks[0][1]:
+    parked_trucks -= 1
+  if t == trucks[1][1]:
+    parked_trucks -= 1
+  if t == trucks[2][1]:
     parked_trucks -= 1
   cost += rates[parked_trucks-1]*parked_trucks
-  # print(parked_trucks,rates[parked_trucks],rates[parked_trucks]*parked_trucks,cost)
-
+  
 print(cost)
