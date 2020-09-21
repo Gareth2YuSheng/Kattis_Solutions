@@ -6,15 +6,6 @@ import sys
 
 grid = [ list(map(int,sys.stdin.readline().split())) for _ in range(4) ]
 action = int(sys.stdin.readline())
-'''
-0 - left
-1- up
-2 - right
-3 - down
-'''
-# print(grid)
-# print(action)
-
 
 def swipe(row):
   if len(set(row)) == len(row) and 0 not in row:
