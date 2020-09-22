@@ -1,23 +1,23 @@
 # Author: Gareth Too Yu Sheng
 # Problem: Pivot
 # Source: https://open.kattis.com/problems/pivot
-# Solution 1
 
 import sys
 
 def main():  
     num = int(sys.stdin.readline())
-    i = [int(n) for n in sys.stdin.readline().split()]
+    i = list(map(int, sys.stdin.readline().split()))
     count = 0
+    maxes = [0 for _ in range(num)]
+    mins = [2**32 - 1 for _ in range(num)] 
 
-    for n,e in enumerate(i):
-      if n > 0:
-        if e < max(i[:n]):
-          continue
-      if n < num-1:
-        if e > min(i[n+1:]):
-          continue
-      count += 1
+    for x in range(1, num):  
+      maxes[x] = max(maxes[x-1], i[x-1])
+    for x in range(num-2, -1, -1):  
+      mins[x] = min(mins[x+1], i[x+1])
+    for x in range(num):
+      if i[x] >= maxes[x] and i[x] < mins[x]:
+        count+=1
 
     print(count)  
 
