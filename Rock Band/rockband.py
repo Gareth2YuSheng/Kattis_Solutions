@@ -14,10 +14,13 @@ for _ in range(m):
 
 def compute(songs):
   counts = [0 for _ in range(s)]
+  m_count = 0
   for rank in range(s):
     for x in songs[rank]:
       counts[x-1] += 1
-      if set(counts)=={0,m}:
+      if counts[x-1] == m:
+        m_count += 1
+      if m_count == rank+1:
         results = [str(i+1) for i, e in enumerate(counts) if e == m]
         print(len(results))
         print(" ".join(results))
