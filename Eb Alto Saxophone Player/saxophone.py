@@ -8,9 +8,7 @@ for _ in range(int(sys.stdin.readline())):
   fingers = [0 for _ in range(10)]
   presses = [0 for _ in range(10)]
   song = sys.stdin.readline().strip()
-  # print(song)
   for note in song:
-    # print(note+":")
     if note == "c":
       for f in range(len(fingers)):
         if (f>=1 and f<=3) or (f>=6 and f<=9):
@@ -123,7 +121,5 @@ for _ in range(int(sys.stdin.readline())):
             presses[f] += 1
         elif fingers[f] == 1:
           fingers[f] = 0
-    # print(fingers)
-    # print(presses)
   print(" ".join([str(x) for x in presses]))
 
